@@ -1,0 +1,8 @@
+
+testportal/__pycache__/
+
+portal/__pycache__/
+
+portal/migrations/
+
+db\.sqlite3

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles%}
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Пройдите один из наших тестов</h1>
+    <p class="lead text-muted">После прохождения тестов вы можете посмотреть свои результаты в разделе статистика.</p>
+  </div>
+</section>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        {% for course in object_list %}
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <div class="card-header">
+              {{ course.name }}
+            </div>
+            <div class="card-body">
+                  <p class="card-text">{{ course.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                  {% if user.is_authenticated %}
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                      <a href="{% url 'portal:course' pk=course.id %}">Пройти тест</a>
+                    </button>
+                  </div>
+                  {% else %}
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                      <a href="{% url 'login' %}">Необходимо войти</a>
+                    </button>
+                  </div>
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

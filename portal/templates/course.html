@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles%}
+<section class="jumbotron text-center">
+      </section>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              {% for question in questions %}
+              <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                  <a>{{ question.text_question }}</a>
+                </div>
+                <div class="card-body">
+                  <p class="card-text"></p>
+                <form method="post">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-1">
+                      {% for field in form %}
+                      {{ field }}
+                      {% endfor %}
+                    </div>
+                    <div class="col-md-6">
+                        <h5>{{ question.ans1 }}</h5>
+                        <h5>{{ question.ans2 }}</h5>
+                        <h5>{{ question.ans3 }}</h5>
+                        <h5>{{ question.ans4 }}</h5>
+                      </div>
+                    </div>
+                    <div class="pull-right">
+                      <input type="submit" class="btn btn-sm btn-outline-secondary" value="Ответить"></input>
+                    </div>
+                </form>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

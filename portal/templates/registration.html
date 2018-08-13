@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles%}
+<div class="row justify-content-md-center">
+  <div class="col-md-4 jumbotron w-100 p-20 text-center">
+    <div class="card">
+      <h5 class="card-header">Зарегистрироваться</h5>
+      <div class="card-body">
+        <form action="" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+            <h3>{{ field.label_tag }}</h3>
+            <h3>{{ field }}</h3>
+            {% if field.help_text %}
+            <div style="color: grey">{% autoescape off %}{{ field.help_text }}{% endautoescape %}</div>
+            {% endif %}
+            {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          {% endfor %}
+          <button class="btn btn-primary btn-lg" type="submit">Зарегистрироваться
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
