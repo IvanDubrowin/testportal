@@ -32,7 +32,7 @@ class UserCourseStat(models.Model):
     id_course = models.ForeignKey(Course, on_delete=models.CASCADE)
     correct_answers = models.IntegerField()
     total_answers = models.IntegerField()
-    data = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return 'Пользователь: %s, %s'  % (self.id_user, self.id_course)
