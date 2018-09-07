@@ -13,7 +13,7 @@
         {% for field in stat %}
           <div class="card" style="margin-bottom: 2rem;">
             <div class="card-header">
-              <a>{{ field.id_course }}, время прохождения: {{ field.data }}</a>
+              <a>{{ field.id_course }}, время прохождения: {{ field.date }}</a>
             </div>
             <div class="card-body">
               <p class="card-text">Правильных ответов: {{ field.correct_answers }} из {{ field.total_answers }}

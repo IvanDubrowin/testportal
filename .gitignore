@@ -6,3 +6,7 @@ portal/__pycache__/
 portal/migrations/
 
 db\.sqlite3
+
+Simple_ORM/
+
+aiohttp-api-address_book/
